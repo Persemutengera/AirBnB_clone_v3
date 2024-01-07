@@ -163,7 +163,7 @@ Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://tw
 Second part of Airbnb: Joann Vuong
 
 Third part of Airbnb:
-Perseverance Mutengera - [Github](https://github.com/Persemutengera
+Perseverance Mutengera - [Github](https://github.com/Persemutengera)
 Innocent Christian Mhango - [Github](https://github.com/i-christian)
 ## License
 Public Domain. No copy write protection.
