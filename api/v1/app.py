@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" app file
+"""
+Flask REST API
 """
 from flask import Flask
 from models import storage
