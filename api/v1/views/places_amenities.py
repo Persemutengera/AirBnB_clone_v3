@@ -26,7 +26,7 @@ def amenities_per_place(place_id=None):
             place_amen_ids = place_obj.amenities
             place_amenities = []
             for amen in place_amen_ids:
-                response.append(storage.get('Amenity', amen))
+                place_amenities.append(storage.get('Amenity', amen))
         place_amenities = [
             obj.to_json() for obj in place_amenities
             ]
@@ -53,7 +53,7 @@ def amenity_to_place(place_id=None, amenity_id=None):
         if STORAGE_TYPE == 'db':
             place_obj.amenities.remove(amenity_obj)
         else:
-            place_obj.amenity_ids.pop(amenity_obj.id, None)
+            place_obj.amenity_ids.remove(amenity_obj.id)
         place_obj.save()
         return jsonify({}), 200
 
