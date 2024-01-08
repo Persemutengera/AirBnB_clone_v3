@@ -96,6 +96,7 @@ def update_place(place_id):
     storage.save()
     return jsonify(place.to_dict())
 
+
 @app_views.errorhandler(404)
 def page_not_found(error):
     """
