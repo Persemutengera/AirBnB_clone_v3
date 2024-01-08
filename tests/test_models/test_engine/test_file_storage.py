@@ -70,7 +70,7 @@ class TestFileStorageDocs(unittest.TestCase):
             state = storage.get("State", first_state_id)
             self.assertEqual(first_state_id, state.id)
 
-    @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
+    @unittest.skipIf(models.storage == 'db', "not testing file storage")
     def test_count1(self):
         """Test validates number of State objects"""
         objects_c1 = len(models.storage.all("State"))
@@ -80,7 +80,7 @@ class TestFileStorageDocs(unittest.TestCase):
 
 class TestFileStorage(unittest.TestCase):
     """Test the FileStorage class"""
-    @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
+    @unittest.skipIf(models.storage == 'db', "not testing file storage")
     def test_all_returns_dict(self):
         """Test that all returns the FileStorage.__objects attr"""
         storage = FileStorage()
@@ -88,7 +88,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(type(new_dict), dict)
         self.assertIs(new_dict, storage._FileStorage__objects)
 
-    @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
+    @unittest.skipIf(models.storage == 'db', "not testing file storage")
     def test_new(self):
         """test that new adds an object to the FileStorage.__objects attr"""
         storage = FileStorage()
@@ -104,7 +104,7 @@ class TestFileStorage(unittest.TestCase):
                 self.assertEqual(test_dict, storage._FileStorage__objects)
         FileStorage._FileStorage__objects = save
 
-    @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
+    @unittest.skipIf(models.storage == 'db', "not testing file storage")
     def test_save(self):
         """Test that save properly saves objects to file.json"""
         storage = FileStorage()
@@ -134,7 +134,7 @@ class TestFileStorage(unittest.TestCase):
             state = storage.get("State", first_state_id)
             self.assertEqual(first_state_id, state.id)
 
-    @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
+    @unittest.skipIf(models.storage == 'db', "not testing file storage")
     def test_count(self):
         """Test validates number of State objects"""
         objects_c1 = len(models.storage.all("State"))
