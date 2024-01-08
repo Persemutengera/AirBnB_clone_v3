@@ -59,7 +59,7 @@ class BaseModel:
         models.storage.new(self)
         models.storage.save()
 
-    def to_dict(self):
+    def to_dict(self, include_password=False):
         """returns a dictionary containing all keys/values of the instance"""
         new_dict = self.__dict__.copy()
         if "created_at" in new_dict:
@@ -67,6 +67,12 @@ class BaseModel:
         if "updated_at" in new_dict:
             new_dict["updated_at"] = new_dict["updated_at"].strftime(time)
         new_dict["__class__"] = self.__class__.__name__
+
+        # Remove password key unless explicitly requested or
+        # using FileStorage
+        if not include_password and STORAGE_TYPE != "file":
+            new_dict.pop("password", None)
+
         if "_sa_instance_state" in new_dict:
             del new_dict["_sa_instance_state"]
         return new_dict
