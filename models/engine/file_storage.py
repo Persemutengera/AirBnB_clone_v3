@@ -77,7 +77,7 @@ def get(self, cls, id):
             return objects[id_object]
         return None
 
-    def count(self, cls=None):
-        """ Return count of objects """
-        objects = self.all(cls)
-        return len(objects)
+def count(self, cls=None):
+    """ Return count of objects """
+    objects = self.all(cls)
+    return len(objects)

@@ -66,7 +66,7 @@ test_file_storage.py'])
             self.assertIsNot(func[1].__doc__, None,
                              "{:s} method needs a docstring".format(func[0]))
             self.assertTrue(len(func[1].__doc__) >= 1,
-          {:s} method needs a docstring".format(func[0]))
+          "{:s} method needs a docstring".format(func[0]))
 
     @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db',
                      "not testing file storage")
@@ -147,4 +147,4 @@ class TestFileStorage(unittest.TestCase):
         """Test validates number of State objects"""
         objects_c1 = len(models.storage.all("State"))
         objects_c2 = models.storage.count("State")
-        self.assertEqual(objects_c1, objects_c2)            
+        self.assertEqual(objects_c1, objects_c2)
